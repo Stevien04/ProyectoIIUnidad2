@@ -4,6 +4,7 @@ import './../styles/AdminDashboard.css';
 import { GestionEspacios, GestionHorarios, ReportesEstadisticas } from './GestionAdmin';
 import { GestionUsuarios } from './GestionAdmin';
 import { GestionReservas } from './GestionAdmin/GestionReservas';
+import { AuditoriaReserva } from './GestionAdmin/AuditoriaReserva';
 
 interface User {
   id: string;
@@ -190,15 +191,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ user }) => {
 
           {/* Auditoría del Sistema - Puedes crear AuditoriaSistema.tsx después */}
           {activeModule === 'audit' && (
-            <div>
-              <div className="admin-content-header">
-                <div>
-                  <h2 className="admin-content-title">Auditoría del Sistema</h2>
-                  <p className="admin-content-subtitle">Registro detallado de todas las acciones del sistema</p>
-                </div>
-              </div>
-              <p>Componente de auditoría - Puedes crear AuditoriaSistema.tsx</p>
-            </div>
+            <AuditoriaReserva onAuditLog={addAuditLog} />
           )}
 
           {/* Reportes y Estadísticas - Puedes crear ReportesEstadisticas.tsx después */}
